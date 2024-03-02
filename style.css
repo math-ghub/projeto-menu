@@ -3,18 +3,186 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body > h1{
     text-align: center;
 }
 
-#icon{
+#bg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
     background-color: burlywood;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    top: 300px;
+    animation-fill-mode: forwards;
+}
+
+i{
+    display: block;
+    text-align: center;
+    height: 50px;
+}
+
+img{
+    position: relative;
+    top: 0px;
+    height: 100%;
+    animation-fill-mode: forwards;
+}
+
+img:hover{
+    animation: startup 0.3s linear;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+.ended{
+    animation: ended 0.2s linear;
+}
+
+#aviso{
     position: absolute;
-    width: 200px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(83, 81, 81, 0.651);
+    width: 100px;
+    border: 2px dashed black;
+    border-radius: 5px 0px;
+    color: rgb(240, 239, 239);
+    opacity: 0;
+}
+
+.avisoOPEN{
+    animation: avisoOPEN 0.4s linear;
+    animation-fill-mode: forwards;
+}
+
+.avisoCLOSED{
+    animation: avisoCLOSED 0.2s linear;
+}
+
+.bgOPEN{
+    animation: bgOPEN 2s linear;
+}
+
+.bgCLOSED{
+    animation: bgCLOSED 2s linear;
+}
+
+.iconOPENING{
+    animation: iconOPENING 2s linear
+}
+
+.iconCLOSING{
+    animation: iconCLOSING 2s linear
+}
+
+@keyframes startup{
+    from{
+        transform: rotate(0deg) scale(1);
+    }
+
+    to{
+        transform: rotate(120deg) scale(2);
+    }
+}
+
+@keyframes ended{
+    from{
+        transform: rotate(120deg) scale(2);
+    }
+
+    to{
+        transform: rotate(-120deg) scale(1);
+    }
+}
+
+@keyframes avisoOPEN{
+    from{
+        opacity: 0;;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes avisoCLOSED{
+    from{
+        opacity: 1;;
+    }
+
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes bgOPEN{
+    0%{
+        width: 0px;
+        height: 0px;
+        top: 300px;
+    }
+
+    70%{
+        width: 300px;
+        height: 300px;
+        top: 150px;
+        border-radius: 50%;
+    }
+
+    100%{
+        width: 300px;
+        height: 300px;
+        top: 150px;
+        border-radius: 0px;
+    }
+}
+
+@keyframes bgCLOSED{
+    0%{
+        width: 300px;
+        height: 300px;
+        top: 150px;
+        border-radius: 0px;
+    }
+
+    30%{
+        width: 300px;
+        height: 300px;
+        top: 150px;
+        border-radius: 50%;
+    }
+
+    100%{
+        width: 0px;
+        height: 0px;
+        top: 300px;
+        border-radius: 50%;
+    }
+}
+
+@keyframes iconOPENING{
+    from{
+
+    }
+
+    to{
+
+    }
+}
+
+@keyframes iconCLOSING{
+    from{
+
+    }
+
+    to{
+        
+    }
 }

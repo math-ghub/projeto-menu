@@ -36,7 +36,7 @@ img{
     animation-fill-mode: forwards;
 }
 
-img:hover{
+.startup{
     animation: startup 0.3s linear;
     animation-fill-mode: forwards;
     cursor: pointer;
@@ -49,6 +49,7 @@ img:hover{
 #aviso{
     position: absolute;
     text-align: center;
+    margin-top: 120px;
     background-color: rgba(83, 81, 81, 0.651);
     width: 100px;
     border: 2px dashed black;
@@ -75,11 +76,11 @@ img:hover{
 }
 
 .iconOPENING{
-    animation: iconOPENING 2s linear
+    animation: iconOPENING 2s linear;
 }
 
 .iconCLOSING{
-    animation: iconCLOSING 2s linear
+    animation: iconCLOSING 2s linear;
 }
 
 @keyframes startup{
@@ -169,11 +170,12 @@ img:hover{
 
 @keyframes iconOPENING{
     from{
-
+        transform: rotate(0deg) scale(2);
     }
 
     to{
-
+        transform: rotate(505deg) scale(1);
+        opacity: 0;
     }
 }
 

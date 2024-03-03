@@ -5,14 +5,14 @@ var bgbool = false
 var iconmoving = false
 
 icon.onclick = () => {
-     if (bgbool && iconmoving == false) {
+     if (bgbool && !iconmoving) {
         bgRESIZE(false)
         iconmoving = true
         bgbool = false
         setTimeout(() => {
             iconmoving = false
         }, 2000);
-     } else if (bgbool == false && iconmoving == false){
+     } else if (!bgbool && !iconmoving){
         bgRESIZE(true)
         iconmoving = true
         bgbool = true
@@ -23,10 +23,16 @@ icon.onclick = () => {
 }
 
 icon.onmouseenter = () => {
+    if (!iconmoving)
+    icon.classList.add("startup")
     ajustarAviso(true)
+
 }
 
 icon.onmouseleave = () => {
+    if (icon.classList.contains("startup"))
+    icon.classList.remove("startup")
+    if (!iconmoving)
     icon.classList.add("ended")
     ajustarAviso(false)
     
@@ -53,6 +59,8 @@ function bgRESIZE(val) {
     if (val) {
         bg.classList.add("bgOPEN")
         icon.classList.add("iconOPENING")
+        ajustarAviso(false)
+        icon.classList.remove("startup")
         setTimeout(() => {
             icon.classList.remove("iconOPENING")
         }, 2000);
